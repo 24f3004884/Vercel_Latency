@@ -12,7 +12,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
@@ -22,7 +22,9 @@ class MetricsRequest(BaseModel):
     threshold_ms: int
 
 @app.post("/metrics")
-async def compute_metrics(req: MetricsRequest):
+async def metrics(payload: dict):
+    return {"received": payload}
+'''async def compute_metrics(req: MetricsRequest):
     # Load telemetry list
     with open("api/q-vercel-latency.json", "r") as f:
         telemetry = json.load(f)
@@ -50,4 +52,4 @@ async def compute_metrics(req: MetricsRequest):
             "breaches": breaches,
         }
 
-    return results
+    return results'''
