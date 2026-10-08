@@ -22,9 +22,7 @@ class MetricsRequest(BaseModel):
     threshold_ms: int
 
 @app.post("/metrics")
-async def metrics(payload: dict):
-    return {"received": payload}
-'''async def compute_metrics(req: MetricsRequest):
+async def compute_metrics(req: MetricsRequest):
     # Load telemetry list
     with open("api/q-vercel-latency.json", "r") as f:
         telemetry = json.load(f)
@@ -52,4 +50,4 @@ async def metrics(payload: dict):
             "breaches": breaches,
         }
 
-    return results'''
+    return results
