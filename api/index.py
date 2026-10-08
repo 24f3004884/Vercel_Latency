@@ -21,6 +21,10 @@ class MetricsRequest(BaseModel):
     regions: list[str]
     threshold_ms: int
 
+@app.options("/metrics")
+async def options_metrics():
+    return {}  # ensures OPTIONS route exists
+
 @app.post("/metrics")
 async def compute_metrics(req: MetricsRequest):
     # Load telemetry list
