@@ -1,11 +1,12 @@
 # Python cache
-__pycache__/
+.__pycache__/
 *.py[cod]
+.api/__pycache__/
 
 # Virtual environments
 venv/
 env/
-
+.venv/
 # Secrets
 .env
 
